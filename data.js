@@ -1,6 +1,10 @@
-const galleries = [
+/* data.js regroupe toute la data du projet, il s'agit d'un tableau d'objects ayant 3 attributs.
+   Afin de travailler sur un tableau de données plus important, j'ai inactivé l'organisation en 4 tableaux à l'intérieur du tableau principal
+   voir kidsGallery...[]*/
 
-  const kidsGallery1 = [ /*premier tableau d'objet*/
+const gallery = [
+
+  /*const kidsGallery1 = [*/ /*premier tableau d'objet*/
     {
       title: 'Robocar Poli',
       identifier: img.src = './images/robocarPoliLogo.jpg',
@@ -24,9 +28,9 @@ const galleries = [
       identifier: img.src = './images/peppaPigLogo.png',
       recognizer: img.src = './images/peppaPig.png',
     },
-  ],
+  /*],*/
 
-  const kidsGallery2 = [ /*deuxième tableau d'objet*/
+  /*const kidsGallery2 = [*/ /*deuxième tableau d'objet*/
     {
       title: 'Baby Boss',
       identifier: img.src = './images/babyBossLogo.png',
@@ -50,9 +54,9 @@ const galleries = [
       identifier: img.src = './images/reineDesNeigesLogo.png',
       recognizer: img.src = './images/reineDesNeiges.png',
     },
-  ],
+  /*],*/
 
-  const kidsGallery3 = [ /*troisième tableau d'objet*/
+  /*const kidsGallery3 = [*/ /*troisième tableau d'objet*/
     {
       title: 'Franklin',
       identifier: img.src = './images/franklinLogo.png',
@@ -76,9 +80,9 @@ const galleries = [
       identifier: img.src = './images/M&MLogo.png',
       recognizer: img.src = './images/M&M.png',
     },
-  ],
+  /*],*/
 
-  const kidsGallery4 = [ /*quatrième tableau d'objet*/
+  /*const kidsGallery4 = [*/ /*quatrième tableau d'objet*/
     {
       title: 'Ballon',
       identifier: img.src = './images/ballonLogo.png',
@@ -102,6 +106,9 @@ const galleries = [
       identifier: img.src = './images/M&MLogo.png',
       recognizer: img.src = './images/M&M.png',
     },
-  ],
+  /*],*/
 ];
 
+
+/* questions à Antoine :
+   Ce type d'appel d'image est-il valide en JS ? */

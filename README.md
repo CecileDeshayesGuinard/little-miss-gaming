@@ -79,8 +79,8 @@ Pourquoi ?
 Questions pour Antoine :
 
 - Puis-je séparer les fichiers JS = fonctions, datas, animations pour organisation;
-- fichier data JS : Ce type d'image est il valide en JS
-= j'ai une erreur dans la console
+- Fichier data JS : Ce type d'image est il valide en JS = j'ai une erreur dans la console
+- Function JS : J'ai du mal a comprendre le DOM et le canvas = Je bloque
 
 
 

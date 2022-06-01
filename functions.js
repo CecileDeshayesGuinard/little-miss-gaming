@@ -1,58 +1,56 @@
-
-/*function destinée au tri aléatoire de data.js et au repérage de l'image cible et de son match*/
-
-
-function objectSelector () { /* un objet est choisie au hasard dans data.js */
-    return Math.floor(Math.random() * gallery.length);
-};
+/* PREMIERE PHASE : MEMORY GAME EN 4 ETAPES */
 
 
-function pictureSelector () { /* une image solution est choisie dans l'objet tiré au sort */
-    return objectSelector().recognizer;
-};
+/* CONSTRUCTOR */
 
+class GalleryPart { // la méthode du jeu est caractérisé par la class Gallery
+    constructor(cards) {
+      this.cards = cards; // métode générale pour créer le constructor. La méthode this.cards concerne tous les éléments de la variable cards dans index.js
+      this.pickedCards = []; // this.pickedCards sera un tableau qui contiendra les pairsGuessed
+      this.pairsClicked = 0; // on commence avec 0 cartes cliquées avec un max de 2 cartes actives
+      this.pairsGuessed = 0; // on commence avec 0 paires trouvées
+    };
+  
+  
+    shuffleCards() { // tri des cartes, l'utilisation d'un randomInt garanti un tri complètement aléatoire, il semble que ".sort" effectue un tri par ordre en fonction du premier caractère de la chaine
+      this.cards.randomInt(function(min, max) {
+        return (min + Math.floor ((max - min + 1) * Math.random ()));
+      });
+    };
+  
 
-function logoSelector () { /* une image cible est choisie dans l'objet sélectionné */
-    return objectSelector().identifier;
-};
-
-
-function titleSelector ()  { /* permet de récupérer le titre correspondant à l'objet semectioné */
-    return objectSelector.title;
-};
-
-
-function otherRecognizer ()  {/* permet de choisir au hasard des images du tableau différentes de celle correspondant à l'objet selectionné */
-    for (let i = 0; i <= gallery.recognizer.length; i++) {
-        
-
-        if (objectSelector.recognizer() === pictureSelected) {
-            continue;
+    checkIfPair(card1, card2) { // bien spécifier que si click = card1 poussé dans pickedCard
+      this.pairsClicked++ // dès que j'ai selectionné deux cartes checkIfPair vérifie si elles ont le même titre, il faut que pairsClicked soit a Max = 2
+      if (card2 === card1) {
+        this.pairsGuessed++ // on valide le fait d'avoir une paire et on ajoute 1 à la propriété this.pairsGuessed
+        return true
+      } else {
+        return false
+      }
+    };
+  
+  
+    checkIfFinished() { // controle de fin de jeu
+      if (this.pairsGuessed === this.cards.length / 2){ // la condition est que si j'ai trouvé la moitié de l'ensemble des cartes, celà induit que j'ai également trouvé son équivalent et donc réussi le memoru game
+        return true
         } else {
-            return objectSelector.recognizer();
+        return false
         }
-    }
+    };
+
+
+    launchOtherGallery() { // Besoin vérifications
+        if (checkIfFinished() === true) {
+        return GalleryPart.gallery++ // je veux que la galleries suivant soit activée si la première est terminée
+        } else {
+        return GalleryPart; // si le jeu n'est pas terminé alors on recommence
+        }
+    };
 };
 
 
-function recognizerShow ()  {/* permet le tri aléatoire entre les éléments selectionnés pour que les images sur lesquelles*/
-    const primitiveArray = [pictureSelected,otherImage,otherImage,otherImage];
-    primitiveArray.sort();
-    return primitiveArray;
-}
 
-
-
-/* variables de stockage des functions */
-
-
-const animeSelected = objectSelector(gallery);
-const pictureSelected = pictureSelector();
-const logoSelected = logoSelector();
-const otherImage = otherRecognizer();
-const logoTitle = titleSelector();
-const arrayOfProposition = recognizerShow();
-
+/*----------------------------------------------------------------------------------------------------------------------------------*/
 
 
 /* function pour pousser l'image de l'objet selectionnée dans l'id "theCanvas" */
@@ -77,6 +75,9 @@ const HChild = ctx.canvas.height;
 
 fourPictures.innerHTML = recognizerShow();
 otherElement.innerHTML = fourPictures.innerHTML;
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
 
 
 /* le click sur play permet de lancer les functions et de projeter les images sur la page HTML pour le premier test */

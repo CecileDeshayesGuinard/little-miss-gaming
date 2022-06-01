@@ -1,7 +1,7 @@
 body {
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background: url(images/little-miss-gaming-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,39 +14,57 @@ div {
     position: relative;
 }
 
+
+#leftPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30em;
+    height: 100%;
+    border: 2px solid;
+    border-color: aqua; 
+}
+
+
+#rightPage {
+    justify-content: space-around;
+    width:auto;
+    border: 2px solid;
+    border-color: red; 
+}
+
+
 /*Beginning of first part = button "jouer" and "palmarès"*/
 
-.topOfPage {
-    justify-content: flex-start;
-    height: 1Oem;
-    text-align: right;
+#topOfPage {
+    margin-left: 10em;
+    margin-right: 5em;
+    padding-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-size: 2em;
     font-weight: bold;
 }
 
 
-.topOfPage ul {
-    display: flex;
-    flex-direction: row;
-    float: right;
-    margin: 3em;
-}
-
-
-.topOfPage ul li {
-    border: solid;
+#topOfPage button {
+    font-size: 1.5em;
     border-radius: 10%;
     border-width: 0.2em;
     border-style: double;
-    padding: 0.5em;
-    list-style-type: none;
+    border-color: #FFFFFF;
+    padding: 0.2em;
     text-align: center;
     color: #FFFFFF;
+    background-color: transparent;
 }
 
 
-.topOfPage ul li:hover {
+#topOfPage button:hover {
     color: #FCC803;
+    border-color: #FCC803;
+    border-style: groove;
 }
 
 
@@ -58,11 +76,12 @@ div {
 /*Beginning of second Part = block of pictures*/
 
 
-.secondPart {
+#pageBottom {
     justify-content: space-around;
+    height: 100%;
 }
 
-.secondPart table {
+#pageBottom table {
     display: flex;
     flex-direction: column;
     margin-left: 35em;

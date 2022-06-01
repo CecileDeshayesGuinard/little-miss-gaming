@@ -1,13 +1,23 @@
-Little Miss Gaming
+Little Miss Gaming 
+
+But : maitriser constructor, gestion database, création HTML dans JS et pousser à l'interactivité, querySelector, .innerHTML, addEventListener...
 
 --------
 
-Sujet : jeu pour enfant basé sur la reconnaissance d'image (film disney + jeu pour enfant);
+Sujet : jeu pour enfant
+Phase 1 = memory-game à 4 niveaux;
+Phase 2 = animations réussite ou échec pour trouver une paire (réussite = chute de neige pour reconstitution bonhomme, échec = on recommence)
+Phase 3 = animations au passage de niveau
+phase 4 = "flappy-cube" style game pour éviter des obstables - jeu 2D inspiré des jeux d'arcade voir https://codepen.io/abernier/pen/dyympMm ou https://codepen.io/abernier/pen/OJJEVNK?editors=0010 ceci représentera le 5è niveau du jeu.
 
 --------
 
-Principe : cliquer sur l'image correspondant à l'image présenté;
-           4 images sont proposées et l'une d'elles est en lien avec l'image présenté;
+Principe 1 : trouver des paires d'images;
+             8 images sont proposées et le but est de retrouver les paires;
+
+             => un bonhomme de neige se reconstituera sur le flanc gauche du doc HTML. Le but étant qu'il se soit reformé.
+
+Principe 2 : Une fois reconstitué, le bonhomme fait du ski et doit éviter des obstacles
      
 --------
            
@@ -15,28 +25,17 @@ Disposition :
 
 Gauche : effets dynamiques en fonction de la réponse "vrai" ou "faux";
 Haut Droit : Menu simple avec "jouer" et "palmarès";
-Droit (corps): 2 tableaux d'images;
-
-=> 1 : tableau image référente;
-=> 2 : tableau images à choisir;
+Droit (corps): memory-game;
+Gauche (corps): canvas-ski;
 
 --------
 
 Fonctions JS :
 
-1 Selecteur de la gallerie parmis xGalleries
-2 Selecteur du titre d'un objet parmis xObjets de la gallerie
-3 Selecteur de "l'indentifier" du titre selectionné donc de l'image
-4 Selecteur des 4 images des autres objets dans le tableau 2
-
-Info : le titre les l'élément commun entre identifier & recognizer
-
-5 Function Chronomètre de xTemps ou la recherche est disponible avant loose + changement texte bouton par "Stop - Play" en fonction de l'état du jeu (en pause ou en marche)
-==> si fonction chronomètre inadapté aux jeunes enfants mettre une jauge en fonction du reste questions jusqu'a fin de partie
-6 Function xPoints en fonctions des xSecondes restantes avant fin de la recherche
-7 Function Points
-8 Function relative pour comparer le taux de bonnes réponses par rapport au nombre de "questions restante du jeu"
-9 Function (nombre max de questions possibles)
+1 Constructor pour faire tourner le jeu et ses conditions
+2 DOM
+3 CANVA + dynamique
+4 Gestion dataBase avec insertion images
 
 
 --------
@@ -44,8 +43,8 @@ Info : le titre les l'élément commun entre identifier & recognizer
 :hover :
 
 1 effets de survol Menu;
-2 effets de survol image (dans le tableau multi-image);
-3 Chronomètre pour temps de réponse (reset nouvelle image);
+2 effets de survol image (dans le tableau multi-image) "zoom";
+3 insertion principe 2 et disparition principe 1 si validé
 
 --------
 
@@ -56,31 +55,27 @@ Souris ? (comment faire ?)
 
 --------
 
-Résultats win : étoiles qui brillent + élément sonore;
-Resultats loose : neiges qui tombe + élément sonore;
+Principe 1 :
+Résultats win : neige qui tombe + élément sonore + autre photo bonhomme de neige;
+Resultats loose : étoile qui brille + élément sonore + restart;
 
-Résultat final > 70% : étoiles + Bonhomme de neige;
-Résultat final < 70% : méchant "faux" prince + neige;
+principe 2 : réussir le parcour = jeu terminé !
 
-Nouvelles idées à développer;
 
 --------
 
 Pourquoi ?
 
-=> gestion database comme "lab-greatest-movies" (lab non terminé);
+=> gestion database comme "lab-memory-game" (lab non maitrisé);
 => gestion canvas (mauvaise maitrise donc necessite de le refaire dans un projet );
-=> gestion chronomètre (mauvaise maitrise donc necessite de le faire dans un projet);
-=> gestion DOM et Memory Game;
+=> gestion DOM;
 
 
 --------
 
 Questions pour Antoine :
 
-- Puis-je séparer les fichiers JS = fonctions, datas, animations pour organisation;
-- Fichier data JS : Ce type d'image est il valide en JS = j'ai une erreur dans la console
-- Function JS : J'ai du mal a comprendre le DOM et le canvas = Je bloque
+- Comment faire apparaitre mon "HTML de JS" sur mon doc ?
 
 
 

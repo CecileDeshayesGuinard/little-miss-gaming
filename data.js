@@ -1,114 +1,59 @@
-/* data.js regroupe toute la data du projet, il s'agit d'un tableau d'objects ayant 3 attributs.
-   Afin de travailler sur un tableau de données plus important, j'ai inactivé l'organisation en 4 tableaux à l'intérieur du tableau principal
-   voir kidsGallery...[]*/
+/* data.js regroupe toute la data du projet, il s'agit d'un tableau d'objects ayant 2 attributs. Chaque objet a son binome disposant du meme titre.
+   Afin de créer 4 niveaux de recherche cohérent, j'intègre 4 sous galleries à ma gallerie principale...[]
+   Comme pour le lab-memory-game, je préfère une présentation d'objet sur une ligne car lle m'est plus lisible
+   Attention : les images sont appelées avec = nom du dossier: 'nom de l'image' */
+
+const kidsGallery1 = ''; /* je déclacre les variables des sous-galleries au début car CS code m'informe que la déclaration dans l'array principale est une erreur */
+const kidsGallery2 = '';
+const kidsGallery3 = '';
+const kidsGallery4 = '';
+
 
 const gallery = [
 
-  /*const kidsGallery1 = [*/ /*premier tableau d'objet*/
-    {
-      title: 'Robocar Poli',
-      identifier: img.src = './images/robocarPoliLogo.jpg',
-      recognizer: img.src = './images/robocarPoli.jpg',
-    },
-  
-    {
-      title: 'Trotro',
-      identifier: img.src = './images/trotroLogo.png',
-      recognizer: img.src = './images/trotro.png',
-    },
-  
-    {
-      title: 'Oui Oui',
-      identifier: img.src = './images/ouiOuiLogo.png',
-      recognizer: img.src = './images/ouiOui.png',
-    },
-  
-    {
-      title: 'Peppa Pig',
-      identifier: img.src = './images/peppaPigLogo.png',
-      recognizer: img.src = './images/peppaPig.png',
-    },
-  /*],*/
+  kidsGallery1 = [ /*premier tableau d'objet*/
+    {title: 'Robocar Poli', images: 'robocarPoliLogo.jpg'},
+    {title: 'Robocar Poli', images: 'robocarPoli.jpg'},
+    {title: 'Trotro', images: 'trotroLogo.png'},
+    {title: 'Trotro', images: 'trotro.png'},
+    {title: 'Oui Oui', images: 'ouiOuiLogo.png'},
+    {title: 'Oui Oui', images: 'ouiOui.png'},
+    {title: 'Peppa Pig', images: 'peppaPigLogo.png'},
+    {title: 'Peppa Pig', images: 'peppaPig.png'},
+  ],
 
-  /*const kidsGallery2 = [*/ /*deuxième tableau d'objet*/
-    {
-      title: 'Baby Boss',
-      identifier: img.src = './images/babyBossLogo.png',
-      recognizer: img.src = './images/babyBoss.png',
-    },
-  
-    {
-      title: 'Calimero',
-      identifier: img.src = './images/calimeroLogo.png',
-      recognizer: img.src = './images/calimero.png',
-    },
-  
-    {
-      title: 'Raiponce',
-      identifier: img.src = './images/raiponceLogo.png',
-      recognizer: img.src = './images/raiponce.png',
-    },
-  
-    {
-      title: 'Peppa Pig',
-      identifier: img.src = './images/reineDesNeigesLogo.png',
-      recognizer: img.src = './images/reineDesNeiges.png',
-    },
-  /*],*/
+  kidsGallery2 = [ /*deuxième tableau d'objet*/
+    {title: 'Baby Boss', images: 'babyBossLogo.png'},
+    {title: 'Baby Boss', images: 'babyBoss.png'},
+    {title: 'Calimero', images: 'calimeroLogo.png'},
+    {title: 'Calimero', images: 'calimero.png'},
+    {title: 'Raiponce', images: 'raiponceLogo.png'},
+    {title: 'Raiponce', images: 'raiponce.png'},
+    {title: 'Reine des Neiges', images: 'reineDesNeigesLogo.png'},
+    {title: 'Reine des Naiges', images: 'reineDesNeiges.png'},
+  ],
 
-  /*const kidsGallery3 = [*/ /*troisième tableau d'objet*/
-    {
-      title: 'Franklin',
-      identifier: img.src = './images/franklinLogo.png',
-      recognizer: img.src = './images/franklin.png',
-    },
-  
-    {
-      title: 'Vaiana',
-      identifier: img.src = './images/vaianaLogo.png',
-      recognizer: img.src = './images/vaiana.png',
-    },
-  
-    {
-      title: 'Shrek',
-      identifier: img.src = './images/shrekLogo.png',
-      recognizer: img.src = './images/shrek.png',
-    },
-  
-    {
-      title: 'M&M',
-      identifier: img.src = './images/M&MLogo.png',
-      recognizer: img.src = './images/M&M.png',
-    },
-  /*],*/
+  kidsGallery3 = [ /*troisième tableau d'objet*/
+    {title: 'Franklin', images: 'franklinLogo.png'},
+    {title: 'Franklin', images: 'franklin.png'},
+    {title: 'Vaiana', images: 'vaianaLogo.png'},
+    {title: 'Vaiana', images: 'vaiana.png'},
+    {title: 'Shrek', images: 'shrekLogo.png'},
+    {title: 'Shrek', images: 'shrek.png'},
+    {title: 'M&M', images: 'M&MLogo.png'},
+    {title: 'M&M', images: 'M&M.png'},
+  ],
 
-  /*const kidsGallery4 = [*/ /*quatrième tableau d'objet*/
-    {
-      title: 'Ballon',
-      identifier: img.src = './images/ballonLogo.png',
-      recognizer: img.src = './images/ballon.png',
-    },
+  kidsGallery4 = [ /*quatrième tableau d'objet*/
+    {title: 'Ballon', images: 'ballonLogo.png'},
+    {title: 'Ballon', images: 'ballon.png'},
+    {title: 'Pomme', images: 'pommeLogo.png'},
+    {title: 'Pomme', images: 'pomme.png'},
   
-    {
-      title: 'Pomme',
-      identifier: img.src = './images/pommeLogo.png',
-      recognizer: img.src = './images/pomme.png',
-    },
+    {title: 'Avion', images: 'avionLogo.png'},
+    {title: 'Avion', images: 'avion.png'},
   
-    {
-      title: 'Avion',
-      identifier: img.src = './images/avionLogo.png',
-      recognizer: img.src = './images/avion.png',
-    },
-  
-    {
-      title: 'M&M',
-      identifier: img.src = './images/M&MLogo.png',
-      recognizer: img.src = './images/M&M.png',
-    },
-  /*],*/
+    {title: 'Chat', images: 'chatLogo.png'},
+    {title: 'Chat', images: 'chat.png'},
+  ]
 ];
-
-
-/* questions à Antoine :
-   Ce type d'appel d'image est-il valide en JS ? */

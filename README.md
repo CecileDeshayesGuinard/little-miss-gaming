@@ -76,6 +76,8 @@ Pourquoi ?
 Questions pour Antoine :
 
 - Comment faire apparaitre mon "HTML de JS" sur mon doc ?
+=> Pb avec le fichier index.js ne me permet pas de projeter les cartes : https://github.com/CecileDeshayesGuinard/lab-javascript-memory-game.git
+
 
 
 

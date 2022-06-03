@@ -1,18 +1,48 @@
-const galleryPart = new GalleryPart(cards); // cette variable prend toujours les caractéristiques de la gallerie créée par le constructeur
 
-window.addEventListener('load', (event) => {  // pour chaque chargement de page
+/* function pour pousser l'image de l'objet selectionnée dans l'id "theCanvas" */
 
-  galleryPart.shuffleCards() // dès que la page recharge, un mélange des carte est effectué
-  let html = undefined; // d'après mes recherches sur internet, il faudrait mettre undefined
+/*
+const firstPicture = document.getElementById('theCanvas');
+const ctxMain = document.querySelector('theCanvas').getContext('2d');
+const WMain = ctx.theCanvas.width;
+const HMain = ctx.theCanvas.height;
 
-  galleryPart.cards.forEach((cards) => { // on créer un code HTML qui sera poussé dans notre document
-    html += `
-      <div class="card" data-card-name="${pic.name}">
-        <div class="back" name="${pic.img}"></div>
-        <div class="front" style="background: url(img/${pic.img}) no-repeat"></div>
-      </div>
-    `;
-  }); // "memoryGame.cards" fait appel à mon constructeur (donc à mon statut de démarrage)
+firstPicture.innerHTML = logoSelected;
+otherElement.innerHTML = firstPicture.innerHTML;*/
 
 
-});
+
+/* function pour pousser les 4 images de la galerie selectionnée dans les "canvas" aléatoirement, le but est que l'emplacement dans le tableau soit non linéaire */
+
+/*
+const fourPictures = document.getElementsByClassName('canvas');
+const ctxChild = document.querySelector('canvas').getContext('2d');
+const WChild = ctx.canvas.width;
+const HChild = ctx.canvas.height;
+
+fourPictures.innerHTML = recognizerShow();
+otherElement.innerHTML = fourPictures.innerHTML;*/
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* le click sur play permet de lancer les functions et de projeter les images sur la page HTML pour le premier test */
+
+
+let play = document.getElementById('replay');
+ 
+play.onclick = function () {
+    console.log(logoSelected, arrayOfProposition)
+};
+
+
+let otherTurn = document.getElementById('canvas');
+ 
+otherTurn.onclick = function () {
+    console.log(logoSelected, arrayOfProposition)
+};
+
+
+/* let theGoodMatch = ... il faut changer la class pour qu'elle corresponde à la photo correspondante */
+

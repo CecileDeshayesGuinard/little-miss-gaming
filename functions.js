@@ -1,101 +1,87 @@
-/* PREMIERE PHASE : MEMORY GAME EN 4 ETAPES */
+
+/* functions destinée au tri aléatoire de data.js et au repérage de l'image cible et de son match */
+
+let arraySelected = gallery[0];
 
 
-/* CONSTRUCTOR */
+/* première étape : le mélange des images */
 
-class GalleryPart { // la méthode du jeu est caractérisé par la class Gallery
-    constructor(cards) {
-      this.cards = cards; // métode générale pour créer le constructor. La méthode this.cards concerne tous les éléments de la variable cards dans index.js
-      this.pickedCards = []; // this.pickedCards sera un tableau qui contiendra les pairsGuessed
-      this.pairsClicked = 0; // on commence avec 0 cartes cliquées avec un max de 2 cartes actives
-      this.pairsGuessed = 0; // on commence avec 0 paires trouvées
-    };
-  
-  
-    shuffleCards() { // tri des cartes, l'utilisation d'un randomInt garanti un tri complètement aléatoire, il semble que ".sort" effectue un tri par ordre en fonction du premier caractère de la chaine
-      this.cards.randomInt(function(min, max) {
-        return (min + Math.floor ((max - min + 1) * Math.random ()));
-      });
-    };
-  
+let arrayShuffled;
 
-    checkIfPair(card1, card2) { // bien spécifier que si click = card1 poussé dans pickedCard
-      this.pairsClicked++ // dès que j'ai selectionné deux cartes checkIfPair vérifie si elles ont le même titre, il faut que pairsClicked soit a Max = 2
-      if (card2 === card1) {
-        this.pairsGuessed++ // on valide le fait d'avoir une paire et on ajoute 1 à la propriété this.pairsGuessed
-        return true
-      } else {
-        return false
-      }
-    };
-  
-  
-    checkIfFinished() { // controle de fin de jeu
-      if (this.pairsGuessed === this.cards.length / 2){ // la condition est que si j'ai trouvé la moitié de l'ensemble des cartes, celà induit que j'ai également trouvé son équivalent et donc réussi le memoru game
-        return true
-        } else {
-        return false
-        }
-    };
+function objectSelector () { /* un objet est choisi au hasard dans data.js */
+  arraySelected.sort(function(a, b) { // .sort permet le tri mais je ne comprend pas l'importance des paramètres. Nous trions les objets de l'array "card"
+    // Math.random() // ]0; 1[, ex: 0.123456
 
-
-    launchOtherGallery() { // Besoin vérifications
-        if (checkIfFinished() === true) {
-        return GalleryPart.gallery++ // je veux que la galleries suivant soit activée si la première est terminée
-        } else {
-        return GalleryPart; // si le jeu n'est pas terminé alors on recommence
-        }
-    };
+    if (Math.random() > .5) { // on créer une condition pour que le Math.random renvoie un nombre entier
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 };
 
 
+/* deuxième étape : la projection des images en meme temps que le mélange */
 
-/*----------------------------------------------------------------------------------------------------------------------------------*/
+let pictures;
 
-
-/* function pour pousser l'image de l'objet selectionnée dans l'id "theCanvas" */
-
-
-const firstPicture = document.getElementById('theCanvas');
-const ctxMain = document.querySelector('theCanvas').getContext('2d');
-const WMain = ctx.theCanvas.width;
-const HMain = ctx.theCanvas.height;
-
-firstPicture.innerHTML = logoSelected;
-otherElement.innerHTML = firstPicture.innerHTML;
-
-
-
-/* function pour pousser les 4 images de la galerie selectionnée dans les "canvas" aléatoirement, le but est que l'emplacement dans le tableau soit non linéaire */
-
-const fourPictures = document.getElementsByClassName('canvas');
-const ctxChild = document.querySelector('canvas').getContext('2d');
-const WChild = ctx.canvas.width;
-const HChild = ctx.canvas.height;
-
-fourPictures.innerHTML = recognizerShow();
-otherElement.innerHTML = fourPictures.innerHTML;
-
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
-/* le click sur play permet de lancer les functions et de projeter les images sur la page HTML pour le premier test */
-
-
-let play = document.getElementById('replay');
- 
-play.onclick = function () {
-    console.log(logoSelected, arrayOfProposition)
+function pictureProjection () { /* on projette l'image de l'objet trié sur le HTML en mode "non tournée */
+    return objectSelector().images;
 };
 
 
-let otherTurn = document.getElementById('canvas');
- 
-otherTurn.onclick = function () {
-    console.log(logoSelected, arrayOfProposition)
+let title;
+
+function pictureProjection () { /* on projette l'image de l'objet trié sur le HTML en mode "non tournée */
+  return objectSelector().title;
 };
 
 
-/* let theGoodMatch = ... il faut changer la class pour qu'elle corresponde à la photo correspondante */
+let picture1 = ''; /* je déclare une variable pour la première image cliquée */
 
+
+function titleSelector ()  { /* permet de récupérer le titre correspondant à l'objet selectioné */
+    return picture1.title;
+};
+
+
+let picture2 = ''; /* je déclare une variable pour la seconde image cliquée */
+
+
+function titleCompare ()  {/* permet de comparer les titres des images 1 et 2 et de trouver les pairs*/
+    if (picture2.title === picture1.title) {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+
+function pairsValidation ()  { /* je souhaite ajouter une class 'turned' sur le doc HTML pour les pairs trouvées */
+  if (titleCompare() === true) {
+    return 'turned';
+  } else {
+    return '';
+  }
+}
+
+
+function blockPairs()  { /* pour éviter d'enlever la class turned aux pairs trouvées, je dois rajouter une class qui protège les images des manipulations ultérieures */
+  if (pairsValidation() !== true)  {
+    return picture1 = '';
+  } else {
+    return 'validate';
+  }
+}
+
+
+function gameOver()  { /* a la réussite du jeu, je change de tableau pour aller vers le second */
+  if (validatePairs == arraySelected.length / 2)  {
+    gallery[0]++;
+  }
+}
+
+
+function otherGame()  { /* dès que le dernier tableau est terminé, je passe au jeu du labyrinthe */
+  if (arraySelected === gallery[3]) return mazeGame;
+}

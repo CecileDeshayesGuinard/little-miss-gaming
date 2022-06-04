@@ -6,25 +6,38 @@ window.addEventListener('load'), (event) => {
   play.onclick = function () {
     console.log(arrayShuffled ,pictures)
   };
-};
 
-/* maintenant nous cliquons sur la première carte et la retournons */
+  let picture = pictureProjection();
+  title = titleProjection;
 
-picture = pictureProjection;
-title = titleProjection;
-
-window.addEventListener('turn'), (event) => {
-  let picture = document.getElementsByTagName('img');
+  picture = document.getElementsByTagName('img');
   let html = undefined;
- 
-  picture.onclick = function () {
-    arraySelected.picture.forEach(() => {
-    html += `
 
-    <tr>
-      <td><img class="turned" width="auto" height="110" src="${picture}" alt="${title}"></img></td>
-    </tr>
-     `
+
+ /* maintenant nous cliquons sur la première carte et la retournons */
+  
+ 
+  picture.onclick = function (img) {
+    arraySelected.picture.forEach((img) => {
+    html += 
+      `
+       <td><img class="turned" width="auto" height="110" src="${picture}" alt="${title}"></img></td>
+      `
+     });
+    };
+
+    document.querySelector('#options.tr.td.img').innerHTML = html;
+  
+    setTimeout(() => {
+    document.querySelectorAll('img').forEach((img) => {
+      picture.addEventListener('click') (() => {  
+
+        if (picture1 === undefined)  {
+          return titleSelector() && picture.classList.remove("turned")
+        } else {
+          return titleCompare() && pairsValidation() && blockPairs() && gameOver() && otherGame()
+        }
+      });
     });
-  };
+  },2000);
 };

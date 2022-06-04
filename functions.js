@@ -37,7 +37,7 @@ function pictureProjection () { /* on projette l'image de l'objet trié sur le H
 };
 
 
-let picture1 = ''; /* je déclare une variable pour la première image cliquée */
+let picture1 = undefined; /* je déclare une variable pour la première image cliquée */
 
 
 function titleSelector ()  { /* permet de récupérer le titre correspondant à l'objet selectioné */
@@ -45,15 +45,15 @@ function titleSelector ()  { /* permet de récupérer le titre correspondant à 
 };
 
 
-let picture2 = ''; /* je déclare une variable pour la seconde image cliquée */
+let picture2 = undefined; /* je déclare une variable pour la seconde image cliquée */
 
 
-function titleCompare ()  {/* permet de comparer les titres des images 1 et 2 et de trouver les pairs*/
-    if (picture2.title === picture1.title) {
-      return true;
-    } else {
-      return false;
-    }
+function titleCompare ()  { /* permet de comparer les titres des images 1 et 2 et de trouver les pairs */
+  if (picture2.title === picture1.title) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 

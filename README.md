@@ -5,19 +5,19 @@ But : maitriser constructor, gestion database, création HTML dans JS et pousser
 --------
 
 Sujet : jeu pour enfant
-Phase 1 = memory-game à 4 niveaux;
+Phase 1 = memory-game à 3 niveaux;
 Phase 2 = animations réussite ou échec pour trouver une paire (réussite = chute de neige pour reconstitution bonhomme, échec = on recommence)
 Phase 3 = animations au passage de niveau
-phase 4 = "flappy-cube" style game pour éviter des obstables - jeu 2D inspiré des jeux d'arcade voir https://codepen.io/abernier/pen/dyympMm ou https://codepen.io/abernier/pen/OJJEVNK?editors=0010 ceci représentera le 5è niveau du jeu.
+phase 4 = "flappy-cube" style game pour éviter des obstables - jeu 2D inspiré des jeux d'arcade voir https://codepen.io/abernier/pen/dyympMm ou https://codepen.io/abernier/pen/OJJEVNK?editors=0010 (idée de faire un "maze runner")
 
 --------
 
 Principe 1 : trouver des paires d'images;
-             8 images sont proposées et le but est de retrouver les paires;
+             16 images sont proposées et le but est de retrouver les paires;
 
              => un bonhomme de neige se reconstituera sur le flanc gauche du doc HTML. Le but étant qu'il se soit reformé.
 
-Principe 2 : Une fois reconstitué, le bonhomme fait du ski et doit éviter des obstacles
+Principe 2 : Une fois reconstitué le bonhomme devrait finir le labyrinthe 
      
 --------
            
@@ -26,16 +26,15 @@ Disposition :
 Gauche : effets dynamiques en fonction de la réponse "vrai" ou "faux";
 Haut Droit : Menu simple avec "jouer" et "palmarès";
 Droit (corps): memory-game;
-Gauche (corps): canvas-ski;
+Droit (corps): labyrinthe post memory-game;
 
 --------
 
 Fonctions JS :
 
-1 Constructor pour faire tourner le jeu et ses conditions
-2 DOM
-3 CANVA + dynamique
-4 Gestion dataBase avec insertion images
+1 DOM
+2 CANVA + animations
+3 Gestion dataBase avec insertion images
 
 
 --------

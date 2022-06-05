@@ -117,12 +117,6 @@ table tr {
 }
 
 
-caption {
-    padding-bottom: 0.5em;
-    font-size: 1.5em;
-}
-
-
 table img {
     opacity: 0.5;
     border-color: transparent;
@@ -131,13 +125,18 @@ table img {
 }
 
 
-table img:hover {
-    -ms-transform: scale(1.4); /* IE 9 */
-    -webkit-transform: scale(1.4); /* Safari 3-8 */
+/* table img:hover {
     transform: scale(1.4);
-}
+} */
 
 
 table img.turned {
     opacity: 1;
+    pointer-events: none; /* permet d'éviter le click si la class est présente dans le code HTML */
+}
+
+
+table img.validate {
+    opacity: 1;
+    pointer-events: none; /* permet d'éviter le click si la class est présente dans le code HTML */
 }

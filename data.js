@@ -5,10 +5,10 @@
    
 */
 
-const trotro = undefined; /* je déclacre les variables des sous-galleries au début car CS code m'informe que la déclaration dans l'array principale est une erreur */
-const pepaPig = undefined;
-const iceAge = undefined;
-const mysteryCard = "carteMystère.png";
+let trotro;
+let pepaPig;
+let iceAge;
+let mysteryCard = "carteMystère.png";
 
 trotro = [
   /*premier tableau d'objet*/

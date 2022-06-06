@@ -20,7 +20,7 @@ div {
     flex-direction: column;
     justify-content: flex-start;
     width: 35em;
-    height: 100%;
+    height: 100vh;
     border: 2px solid;
     border-color: aqua; 
 }
@@ -36,6 +36,12 @@ div {
     padding-right: 10em;
 
 }
+
+
+#leftPage div {
+    padding-top: 30vh;
+}
+
 
 
 /*Beginning of first part = button "play" and "records"*/
@@ -136,7 +142,7 @@ table img.validate {
 
 
 .flashWin { /* permet de faire appel au keyframe du même nom pour les couleut tout en donnant des attributs sépcifiques à la classe */
-    animation-duration: 0.5s;
+    animation-duration: 1s;
     animation-name: flashWin;
     animation-iteration-count: infinite;
     transition: none;    
@@ -149,14 +155,14 @@ table img.validate {
 }
 
 
-.flashWrong {
-    animation-duration: 0.5s;
-    animation-name: flashWin;
+.flashLost {
+    animation-duration: 1s;
+    animation-name: flashLost;
     animation-iteration-count: infinite;
     transition: none;    
 }
     
-@keyframes flashWrong { 
+@keyframes flashLost { 
     from { color: #FFFFFF }
     to   { color: red }
 }

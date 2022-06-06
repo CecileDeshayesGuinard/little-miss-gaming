@@ -1,10 +1,10 @@
 /* PHASE 1: MELANGE DES IMAGES ET DEBUT DE JEU */
 
 let arraySelected = gallery[0]; // j'oblige la selection de la première gallerie dans data.js
-
-
+console.log(arraySelected);
 
 /* première étape : le mélange des images */
+
 
 function objectSelector () { // un objet est choisi au hasard dans la gallerie selectionnée de data.js
   arraySelected.sort(function(a, b) { // .sort permet le tri entre deux éléments qui se suivent et donc de repositionner sur toute la longeur de l'array chaque éléments par rapport à sont précedent
@@ -18,28 +18,13 @@ function objectSelector () { // un objet est choisi au hasard dans la gallerie s
   });
 };
 
+arraySelected = objectSelector(arraySelected); // je récupère la gallerie mélangée
 
 
-/* deuxième étape : je créer une variable backPicture qui montre le dos de l'image */
-
-let backPictures =
-
-function pictureProjection () { // on projette l'image de l'objet trié sur le HTML en mode "non tournée" donc la backImage de chaque
-    return objectSelector().backImage;
-};
-;
+/* le mélange se fait mais sans projection dans notre HTML */
 
 
-/* le click sur play permet de lancer les functions et de projeter les images sur la page HTML pour le premier test */
-
-let play = document.getElementById('play'); // click sur élément HTML ayant l'id "play"
-
-play.onclick = function () {
-  console.log(backPictures) // au click on affiche les images coté back
-};
-
-
-backPictures = Array.from(document.querySelectorAll('img')); // [ <img>, <img>, ... ] nous lions les backImages avec la balise img dans notre HTML
+arraySelected = Array.from(document.querySelectorAll('img')); // [ <img>, <img>, ... ]
 let html = '';
 
 
@@ -52,8 +37,10 @@ let pairsCount = 0;
 let picture1; // la carte cliquée
 let picture2; // anciennement picture1 qui devient picture2 dès la seconde image cliquée
 
+let win; // effet spécial si paire trouvée
 
-backPictures.forEach(backPicture => { // on créer un évenement valable pour chaque image de backPictures
+
+arraySelected.forEach(backPicture => { // on créer un évenement valable pour chaque image de backPictures
   // backPicture est une <img>
   backPicture.onclick = function () { // l'évènement est généré par un click
     
@@ -79,10 +66,8 @@ backPictures.forEach(backPicture => { // on créer un évenement valable pour ch
         console.log('win');
         pairsCount++;
         // bloquer les 2 cartes avec la class 'validate' et supprimer la class 'turned' qui ne sert que temporairement
-        picture1.classList.add('validate');
-        picture2.classList.add('validate');
-        picture1.classList.remove('turned');
-        picture2.classList.remove('turned');
+        picture1.classList.replace('turned','validate');
+        picture2.classList.replace('turned', 'validate');
         picture1 = ''; // je supprime la backPicture pour repartir à 0 (autrement, le jeu recommance avec une backPicture lors du premier click)
         picture2 = ''; // je supprime la picture2 pour repartir à 0 (autrement, le jeu recommance avec une backPicture lors du premier click)
       } 
@@ -99,45 +84,27 @@ backPictures.forEach(backPicture => { // on créer un évenement valable pour ch
       console.log('first clicked image');
     };
 
-    /* Pourquoi remplacer 'turned' par 'validate"
-       'turned' permet de retourner les images cliquées. il est donc important de l'enveler en cas d'échec.
-       Egalement, 'turned' ne peut être gardé sur les paires trouvées car le moindre échec enlèverait nos gains précédents en supprimant la classe.
-       Pour palier à ce problème, nous remplaçons la class 'turned' par 'validate' qui n'est jamais éffacée
-       Un problème survient automatiquement avec notre choix de jeu : un double click sur une même image valide une paire qui n'en est pas une.
-       Initialement, je voulais trouvé une solution en .js mais ceci, en plus d'être compliqué, rendait le code erratique.
-       Solution trouvée via le .css : { pointer-events: none; }
-       Ce code .css attribué aux classes 'turned' et 'validate' empeche le click sur les images les possédant, donc déjà cliquées
+    /*Pourquoi remplacer 'turned' par 'validate"
+      'turned' permet de retourner les images cliquées. il est donc important de l'enveler en cas d'échec.
+      Egalement, 'turned' ne peut être gardé sur les paires trouvées car le moindre échec enlèverait nos gains précédents en supprimant la classe.
+      Pour palier à ce problème, nous remplaçons la class 'turned' par 'validate' qui n'est jamais éffacée
+      Un problème survient automatiquement avec notre choix de jeu : un double click sur une même image valide une paire qui n'en est pas une.
+      Initialement, je voulais trouvé une solution en .js mais ceci, en plus d'être compliqué, rendait le code erratique.
+      Solution trouvée via le .css : { pointer-events: none; }
+      Ce code .css attribué aux classes 'turned' et 'validate' empeche le click sur les images les possédant, donc déjà cliquées
     */
 
-    if (pairsCount === backPictures.length / 2) { // on controle si le jeu est terminé
-        console.log('game over: go to the next game !');
-    }
+
+    if (pairsCount === arraySelected.length / 2) { // on controle si le jeu est terminé
+      console.log('first level over, now second level !');
+    };
   };
+});
 
-});    
+/* if (pairsCount++) {
+  let win = document.getElementById('win'); // click sur élément HTML ayant l'id "play"
 
-  /*  setTimeout(() => {
-      document.querySelectorAll('img').forEach((img) => {
-        img.addEventListener('click') (() => {  
-
-          if (titleCompare() !== true)  {
-            return img.classList.remove("turned") // je veux enlever la class "turned" des images "en cours de validation" et donc recommencer
-          } else {
-            return img.classList.remove("turned") && picture1((img) => { // j'enlève quand meme turned mais je rejoute la class "validate" qui ne peu pas s'enlever
-              html+=
-              `
-              <td><img class="validate" width="auto" height="110" src="${image}" alt="${title}"></img></td>
-              `
-            }) && gameOver() && otherGame() // vérification de fin de gallerie et de jeu
-        
-          }
-        });
-      });
-    },2000); // j'ai 2 secondes de vue dans le cas ou les validations ne sont pas respectées
-
-
-/* comment console(log) tout ça ?
-   ai-je des problème dans l'iteration des functions et des étapes ?
-   fichiers : window / functions
-   data.js semble bon
-*/
+play.onclick = function () {
+console.log(backPictures) // au click on affiche les images coté back
+};
+} */

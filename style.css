@@ -26,20 +26,21 @@ div {
 }
 
 
+
 #rightPage {
     justify-content: space-around;
-    width:auto;
+    width: 65em;
     border: 2px solid;
     border-color: red;
     padding-left: 10em;
+    padding-right: 10em;
+
 }
 
 
-/*Beginning of first part = button "jouer" and "palmarès"*/
+/*Beginning of first part = button "play" and "records"*/
 
 #topOfPage {
-    margin-left: 7em;
-    margin-right: 5em;
     padding-top: 1.5em;
     display: flex;
     flex-direction: row;
@@ -61,11 +62,6 @@ div {
 }
 
 
-#play {
-    margin-right: 2em;
-}
-
-
 #topOfPage button:hover {
     color: #FCC803;
     border-color: #FCC803;
@@ -73,7 +69,7 @@ div {
 }
 
 
-#replay {
+#play {
     margin-right: 3em;
 };
 
@@ -96,8 +92,6 @@ div {
 table {
     display: flex;
     flex-direction: column;
-    margin-left: 4em;
-    margin-right: 1.5em;
     margin-top: 1em;
     font-size: 1.5em;
     font-weight: 700;
@@ -125,10 +119,6 @@ table img {
 }
 
 
-/* table img:hover {
-    transform: scale(1.4);
-} */
-
 
 table img.turned {
     opacity: 1;
@@ -139,4 +129,34 @@ table img.turned {
 table img.validate {
     opacity: 1;
     pointer-events: none; /* permet d'éviter le click si la class est présente dans le code HTML */
+}
+
+
+/*Effets after pairs found*/
+
+
+.flashWin { /* permet de faire appel au keyframe du même nom pour les couleut tout en donnant des attributs sépcifiques à la classe */
+    animation-duration: 0.5s;
+    animation-name: flashWin;
+    animation-iteration-count: infinite;
+    transition: none;    
+}
+    
+@keyframes flashWin {
+    from { color: #FFFFFF }
+    to   { color: #FCC803 }
+    to   {font-weight: bold}
+}
+
+
+.flashWrong {
+    animation-duration: 0.5s;
+    animation-name: flashWin;
+    animation-iteration-count: infinite;
+    transition: none;    
+}
+    
+@keyframes flashWrong { 
+    from { color: #FFFFFF }
+    to   { color: red }
 }

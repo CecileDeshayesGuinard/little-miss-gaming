@@ -1,13 +1,5 @@
 /* PHASE 1: MELANGE DES IMAGES ET DEBUT DE JEU */
 
-let level = 0
-
-let arraySelected = gallery[level]; // j'oblige la selection de la première gallerie dans data.js
-console.log(arraySelected);
-
-/* première étape : le mélange des images */
-
-
 function shuffle() { // un objet est choisi au hasard dans la gallerie selectionnée de data.js
   arraySelected.sort(function(a, b) { // .sort permet le tri entre deux éléments qui se suivent et donc de repositionner sur toute la longeur de l'array chaque éléments par rapport à sont précedent
     // Math.random() // ]0; 1[, ex: 0.123456
@@ -20,51 +12,25 @@ function shuffle() { // un objet est choisi au hasard dans la gallerie selection
   });
 };
 
-shuffle(); // tu as melange
+function updateTableCards() {
+  //
+  // Parcourir chacune des images de allImages
+  //   - pour chacune: mettre a jour son src avec l'image de arraySelected
+  //
+  // Changer chaque images de allImages par l'image de arraySelected
 
+  allImages.forEach(function (myimage, index) {
+    // myimage: <img>
+    
+    myimage.src = '/images/' + arraySelected[index].image; // ok 
+  })
+}
 
-
-/* le mélange se fait mais sans projection dans notre HTML */
-
-
-play.onclick = function () {
-  console.log(arraySelected) // au click on affiche les images coté back
-};
-
-// ICI il y a un problem car tu "ecrases" arraySelected  oui 
-
+let level = 0
+let arraySelected;
 const allImages = Array.from(document.querySelectorAll('table img')); // [ <img>, <img>, ... ]
 
-//
-// Parcourir chacune des images de allImages
-//   - pour chacune: mettre a jour son src avec l'image de arraySelected
-//
-// Changer chaque images de allImages par l'image de arraySelected
 
-
-/*
-arraySelected:
-
-[
-  { title: "trotroCirque", image: "trotroLogo.png", backImage: "trotroDosCarte.png"},
-  { title: "trotroCirque", image: "trotroLogo.png", backImage: "trotroDosCarte.png"},
-  { title: "trotroAccordeon", image: "trotroAccordeon.png", backImage: "trotroDosCarte.png"},
-]
-*/
-
-allImages.forEach(function (myimage, index) {
-  // myimage: <img>
-  
-  myimage.src = '/images/' + arraySelected[index].image; // ok 
-})
-
-let html = '';
-
-
-/* PHASE 2: CLICK SUR IMAGE */
-
-
-let backPicture; // je déclare une variable pour la première image cliquée
 let pairsCount = 0;
 let picture1; // la carte cliquée
 let picture2; // anciennement picture1 qui devient picture2 dès la seconde image cliquée
@@ -72,6 +38,23 @@ let picture2; // anciennement picture1 qui devient picture2 dès la seconde imag
 let result; // effet spécial si paire trouvée
 result = document.querySelector('span');
 
+function start() {
+  arraySelected = gallery[level]; // j'oblige la selection de la première gallerie dans data.js
+  console.log(arraySelected);
+
+  /* première étape : le mélange des images */
+  shuffle(); // tu as melange
+
+  updateTableCards()
+
+  // reset de toutes les classes turned
+  // TODO
+
+  // reset picture1/picture2
+  // reset pairsCount
+}
+
+/* PHASE 2: CLICK SUR IMAGE */
 
 
 
@@ -140,10 +123,8 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
   };
 });
 
-/* if (pairsCount++) {
-  let win = document.getElementById('win'); // click sur élément HTML ayant l'id "play"
-
 play.onclick = function () {
-console.log(backPictures) // au click on affiche les images coté back
+  console.log(arraySelected) // au click on affiche les images coté back
+
+  start()
 };
-} */

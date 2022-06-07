@@ -144,8 +144,9 @@ table img.validate {
 #cercle {
     width: 20px;
     height: 20px;
-    border-style: double;
     border-radius: 20px;
+    border-style: double;
+    border-color: #FFFFFF;
     background-color: #FFFFFF;
 }
 

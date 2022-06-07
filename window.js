@@ -35,8 +35,8 @@ function updateTableCards() {
 
 /* DECLARATION DE VARIABLE REUTILISEEES */
 
-let level = 0
-let arraySelected = gallery[0];
+let level = 0;
+let arraySelected = gallery[level];
 const allImages = Array.from(document.querySelectorAll('table img')); // [ <img>, <img>, ... ]
 
 
@@ -136,7 +136,12 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
 
 
     if (pairsCount === arraySelected.length / 2) { // on controle si le jeu est terminé
-      console.log('first level over, now second level !');
+      if (level++ !== gallery.length -1) {
+        console.log('level over, now level up !');
+        start();
+      } else {
+        console.log('game finished');
+      }
     };
   };
 });

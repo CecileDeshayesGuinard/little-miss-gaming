@@ -30,7 +30,9 @@ function updateTableCards() {
     pairsCount = 0;
     myImage.src = '/images/' + arraySelected[index].image; // on remplace par les images triés dans mes cartes
   })
-}
+};
+
+
 
 
 /* DECLARATION DE VARIABLE REUTILISEEES */
@@ -45,7 +47,7 @@ let picture1; // la carte cliquée
 let picture2; // anciennement picture1 qui devient picture2 dès la seconde image cliquée
 
 let result; // effet spécial si paire trouvée
-result = document.querySelector('#cercle');
+result = document.querySelector('#effect-found-lost');
 
 
 
@@ -59,17 +61,8 @@ function start() {
 
   // on rechange les images de bases par celles mélangées par la function shuffle
   updateTableCards()
-}
+};
 
-/*
-function levelUp () {
-  arraySelected = gallery[level+1];
-
-  shuffle()
-
-  updateTableCards()
-}
-*/
 
 
 /* PHASE 2: CLICK SUR IMAGE */
@@ -99,9 +92,14 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
       if (picture2.src === picture1.src) {
         console.log('pair found');
         pairsCount++;
+        console.log(pairsCount);
+        const myPairsElement = document.getElementById('myPairs');
+        myPairsElement.innerHTML = `${pairsCount}`;
         // effet win au click avec remove lost si existe
         result.classList.add('flashWin');
-        result.classList.remove('flashLost');
+          setTimeout( () => {
+            result.classList.remove('flashWin');
+          }, 1000);
         // bloquer les 2 cartes avec la class 'validate' et supprimer la class 'turned' qui ne sert que temporairement
         picture1.classList.replace('turned','validate');
         picture2.classList.replace('turned', 'validate');
@@ -115,7 +113,9 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
           picture1.classList.remove('turned');
           // effet lost au click avec remove win si existe
           result.classList.add('flashLost');
-          result.classList.remove('flashWin');
+          setTimeout( () => {
+            result.classList.remove('flashLost');
+          }, 1000);
           picture1 = ''; // je supprime la picture1 pour repartir à 0 (autrement, le jeu recommance avec une backPicture lors du premier click)
           picture2 = ''; // je supprime la picture2 pour repartir à 0 (autrement, le jeu recommance avec une backPicture lors du premier click)
         }
@@ -145,6 +145,8 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
     };
   };
 });
+
+
 
 play.onclick = function () {
   console.log(arraySelected) // au click on mélange les images et on reset le jeu

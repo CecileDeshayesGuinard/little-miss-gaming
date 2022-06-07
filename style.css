@@ -141,37 +141,27 @@ table img.validate {
 /*Effets after pairs found*/
 
 
-#cercle {
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    border-style: double;
-    border-color: #FFFFFF;
-    background-color: #FFFFFF;
-}
-
-
 .flashWin { /* permet de faire appel au keyframe du même nom pour les couleut tout en donnant des attributs sépcifiques à la classe */
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-name: flashWin;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     transition: none;    
 }
     
 @keyframes flashWin {
-    from { background-color: #FFFFFF }
-    to   { background-color: green }
+    from { border-color: #FFFFFF}
+    to   { border-color: green}
 }
 
 
 .flashLost {
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-name: flashLost;
-    animation-iteration-count: infinite;
-    transition: none;    
+    animation-iteration-count: 1;
+    transition: none;
 }
     
 @keyframes flashLost { 
-    from { background-color: #FFFFFF }
-    to   { background-color: red }
+    from { border-color: #FFFFFF}
+    to   { border-color: red}
 }

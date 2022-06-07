@@ -141,6 +141,15 @@ table img.validate {
 /*Effets after pairs found*/
 
 
+#cercle {
+    width: 20px;
+    height: 20px;
+    border-style: double;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+}
+
+
 .flashWin { /* permet de faire appel au keyframe du même nom pour les couleut tout en donnant des attributs sépcifiques à la classe */
     animation-duration: 1s;
     animation-name: flashWin;
@@ -149,9 +158,8 @@ table img.validate {
 }
     
 @keyframes flashWin {
-    from { color: #FFFFFF }
-    to   { color: #FCC803 }
-    to   {font-weight: bold}
+    from { background-color: #FFFFFF }
+    to   { background-color: green }
 }
 
 
@@ -163,6 +171,6 @@ table img.validate {
 }
     
 @keyframes flashLost { 
-    from { color: #FFFFFF }
-    to   { color: red }
+    from { background-color: #FFFFFF }
+    to   { background-color: red }
 }

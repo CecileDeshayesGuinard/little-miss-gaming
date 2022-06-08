@@ -48,7 +48,8 @@ let picture2; // anciennement picture1 qui devient picture2 dès la seconde imag
 
 const result = document.querySelector('#effect-found-lost'); // effet spécial si paire trouvée
 const visibleOlaf = document.querySelector('#visibleOlaf');
-const snowDown = document.querySelector('#snowFlakes img');
+const snowDown = document.querySelectorAll('.SnowFlakes div');
+const moon = document.querySelector('#visibleMoon');
 
 
 
@@ -62,13 +63,7 @@ function start() {
 
   // on rechange les images de bases par celles mélangées par la function shuffle
   updateTableCards()
-
-  if (arraySelected = gallery[1]) {
-    visibleOlaf.classList.add('active');
-  } else if (arraySelected = gallery[2]) {
-    snowDown.classList.replace('snowDown')
-  };
-}
+};
 
 
 
@@ -144,12 +139,17 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
 
     if (pairsCount === arraySelected.length / 2) { // on controle si le jeu est terminé
       if (level++ !== gallery.length -1) {
-        console.log('level over, now level up !');
+        console.log('level over, now level up !')}
         start();
-      } else {
+        if (arraySelected = gallery[1]) {
+          visibleOlaf.classList.add('active');
+        } else if (arraySelected = gallery[2]) {
+          moon.classList.add('up');
+        };
+    } else {
         console.log('game finished');
+        snowDown.classList.replace('noSnow', 'snow');
       }
-    };
   };
 });
 

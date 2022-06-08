@@ -1,4 +1,4 @@
-/* PHASE 1: MELANGE DES IMAGES ET DEBUT DE JEU */
+/* PHASE 1: FUNCTIONS MELANGE DES IMAGES ET DEBUT DE JEU */
 
 function shuffle() { // un objet est choisi au hasard dans la gallerie selectionnée de data.js
   arraySelected.sort(function(a, b) { // .sort permet le tri entre deux éléments qui se suivent et donc de repositionner sur toute la longeur de l'array chaque éléments par rapport à sont précedent
@@ -11,6 +11,8 @@ function shuffle() { // un objet est choisi au hasard dans la gallerie selection
     }
   });
 };
+
+
 
 /* PHASE 2 : REMPLACER LES IMAGES INITIALES PAR CELLES MELANGEES */
 
@@ -34,7 +36,6 @@ function updateTableCards() {
 
 
 
-
 /* DECLARATION DE VARIABLE REUTILISEEES */
 
 let level = 0;
@@ -48,11 +49,14 @@ let picture2; // anciennement picture1 qui devient picture2 dès la seconde imag
 
 const result = document.querySelector('#effect-found-lost'); // effet spécial si paire trouvée
 const visibleOlaf = document.querySelector('#visibleOlaf');
-const snowDown = document.querySelectorAll('.SnowFlakes div');
+const snowDown = document.querySelectorAll('#snowFlakes img');
+console.log(`controle d'erreur`,snowDown);
 const moon = document.querySelector('#visibleMoon');
 
 
 
+
+/* PHASE 3 : FUNCTION START() UTILISANT SHUFFLE & UPDATETABLE CARD */
 
 function start() {
   arraySelected = gallery[level]; // j'oblige la selection de la première gallerie dans data.js
@@ -67,8 +71,8 @@ function start() {
 
 
 
-/* PHASE 2: CLICK SUR IMAGE */
 
+/* PHASE 4 : CLICK SUR IMAGE */
 
 
 allImages.forEach(backPicture => { // on créer un évenement valable pour chaque image de backPictures
@@ -137,26 +141,61 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
     */
 
 
-    if (pairsCount === arraySelected.length / 2) { // on controle si le jeu est terminé
-      if (level++ !== gallery.length -1) {
-        console.log('level over, now level up !')}
+      if (pairsCount === arraySelected.length / 2) { // on controle si le jeu est terminé
+        console.log(`niveau ${level} termine`)
+
+        level++
+
+        // si level 1 => j'affiche olaf
+        if (level === 1) {
+          console.log('affichage d olaf')
+          visibleOlaf.classList.add('active')
+        }
+        
+        // si level 2 => j'affiche la lune
+        if (level === 2) {
+          console.log('affichage de la lune')
+          moon.classList.add('up')
+        }
+        // si level 3 => flocons
+        if (level === 3) {
+          console.log('affichage des flocons')
+          snowDown.forEach(function(img) {
+            img.classList.replace('noSnow','snow');
+          }) // toujours un function pour un forEach
+          //.replace('noSnow','snow')
+        }
+
+        
+
+        // re- start()
+
+        if (level < 4) {
+          start();
+        } else {
+          undefined;
+        }
+       /* if (level++ !== gallery.length -1) {
+          console.log('level over, now level up !')
+        }
         start();
-        if (arraySelected = gallery[1]) {
+        if (arraySelected = gallery[1]) {  // en gros, le jeu est fini s'il n'ya plus d'élément dans l'array gallery
           visibleOlaf.classList.add('active');
-        } else if (arraySelected = gallery[2]) {
+        } else if
+        (arraySelected = gallery[2]) {
           moon.classList.add('up');
-        };
-    } else {
-        console.log('game finished');
-        snowDown.classList.replace('noSnow', 'snow');
-      }
-  };
+        };*/
+
+      } else {
+
+       /*   console.log('game finished');
+          snowDown.classList.replace('noSnow', 'snow'); */
+        }
+      };
 });
 
-
-
 reshuffle.onclick = function () {
-  console.log(arraySelected) // au click on mélange les images et on reset le jeu
-
-  start()
+    console.log(arraySelected) // au click on mélange les images et on reset le jeu
+  
+    start()
 };

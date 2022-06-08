@@ -46,8 +46,10 @@ let pairsCount = 0;
 let picture1; // la carte cliquée
 let picture2; // anciennement picture1 qui devient picture2 dès la seconde image cliquée
 
-let result; // effet spécial si paire trouvée
-result = document.querySelector('#effect-found-lost');
+const result = document.querySelector('#effect-found-lost'); // effet spécial si paire trouvée
+
+
+const visibleOlaf = document.querySelector('visibleOlaf');
 
 
 
@@ -61,6 +63,10 @@ function start() {
 
   // on rechange les images de bases par celles mélangées par la function shuffle
   updateTableCards()
+
+  if (arraySelected === gallery[1]) {
+    visibleOlaf.classList.add('active');
+  }
 };
 
 

@@ -165,3 +165,14 @@ table img.validate {
     from { border-color: #FFFFFF}
     to   { border-color: red}
 }
+
+
+
+#visibleOlaf {
+    opacity: 0;
+}
+
+
+.active {
+    opacity: 1;
+}

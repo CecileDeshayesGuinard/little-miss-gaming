@@ -30,7 +30,7 @@ function updateTableCards() {
     picture1 = '';
     picture2 = '';
     pairsCount = 0;
-    myImage.src = '/images/' + arraySelected[index].image; // on remplace par les images triés dans mes cartes
+    myImage.src = 'images/' + arraySelected[index].image; // on remplace par les images triés dans mes cartes
   })
 };
 

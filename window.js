@@ -47,9 +47,8 @@ let picture1; // la carte cliquée
 let picture2; // anciennement picture1 qui devient picture2 dès la seconde image cliquée
 
 const result = document.querySelector('#effect-found-lost'); // effet spécial si paire trouvée
-
-
-const visibleOlaf = document.querySelector('visibleOlaf');
+const visibleOlaf = document.querySelector('#visibleOlaf');
+const snowDown = document.querySelector('#snowFlakes img');
 
 
 
@@ -64,10 +63,12 @@ function start() {
   // on rechange les images de bases par celles mélangées par la function shuffle
   updateTableCards()
 
-  if (arraySelected === gallery[1]) {
+  if (arraySelected = gallery[1]) {
     visibleOlaf.classList.add('active');
-  }
-};
+  } else if (arraySelected = gallery[2]) {
+    snowDown.classList.replace('snowDown')
+  };
+}
 
 
 
@@ -154,7 +155,7 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
 
 
 
-play.onclick = function () {
+reshuffle.onclick = function () {
   console.log(arraySelected) // au click on mélange les images et on reset le jeu
 
   start()

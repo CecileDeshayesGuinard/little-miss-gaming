@@ -30,7 +30,7 @@ trotro = [
   { title: "trotroZaza", image: "trotroZaza.png", backImage: "trotroDosCarte.png"},
 ];
 
-pepaPig = [
+peppaPig = [
   /*deuxième tableau d'objet*/
   { title: "peppaPigBrown", image: "peppaPigBrown.png", backImage: "peppaPigDosCarte.png"},
   { title: "peppaPigBrown", image: "peppaPigBrown.png", backImage: "peppaPigDosCarte.png"},
@@ -50,7 +50,7 @@ pepaPig = [
   { title: "peppaPigPrincesse", image: "peppaPigPrincesse.png", backImage: "peppaPigDosCarte.png"},
 ];
 
-iceAge = [
+bambi = [
   /*troisième tableau d'objet*/
   { title: "bambi", image: "bambi.png", backImage: "bambiDosCarte.png"},
   { title: "bambi", image: "bambi.png", backImage: "bambiDosCarte.png"},

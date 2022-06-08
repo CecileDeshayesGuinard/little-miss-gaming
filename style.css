@@ -1,3 +1,6 @@
+/*Body and main <div> management*/
+
+
 body {
     margin: 0;
     display: flex;
@@ -38,8 +41,38 @@ div {
 }
 
 
-#leftPage div {
-    padding-top: 30vh;
+
+/*Left page details snow flakes fall*/
+
+
+#snowFlakes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 70vh;
+}
+
+
+#divFlake1 {
+    height: 45vh;
+}
+#divFlake2 {
+    height: 50vh;
+}
+#divFlake3 {
+    height: 54vh;
+}
+#divFlake4 {
+    height: 57vh;
+}
+#divFlake5 {
+    height: 60vh;
+}
+#divFlake6 {
+    height: 64vh;
+}
+#divFlake7 {
+    height: 66vh;
 }
 
 
@@ -75,7 +108,7 @@ div {
 }
 
 
-#play {
+#reshuffle {
     margin-right: 3em;
 };
 
@@ -138,7 +171,7 @@ table img.validate {
 }
 
 
-/*Effets after pairs found*/
+/*Effect after pairs found*/
 
 
 .flashWin { /* permet de faire appel au keyframe du même nom pour les couleut tout en donnant des attributs sépcifiques à la classe */
@@ -148,7 +181,7 @@ table img.validate {
     transition: none;    
 }
     
-@keyframes flashWin {
+@keyframes flashWin { /* permet de créer pour une classe des effets propres */
     from { border-color: #FFFFFF}
     to   { border-color: green}
 }
@@ -168,11 +201,23 @@ table img.validate {
 
 
 
+/*Effect successful level 1*/
+
+
 #visibleOlaf {
+    margin-top: -30em;
     opacity: 0;
 }
 
 
-.active {
+#visibleOlaf.active {
     opacity: 1;
+    transition: 3s;
+}
+
+
+/*Effect successful level 2*/
+
+#snowFlakes img.snowDown {
+    animation:ease-in-out .5s infinite linear;
 }

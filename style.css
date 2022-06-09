@@ -22,7 +22,7 @@ div {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 35em;
+    width: 50em;
     height: 100vh;
 }
 
@@ -51,26 +51,45 @@ div {
 
 #divFlake1 {
     height: 45vh;
+    padding-top: 12vh;
 }
 #divFlake2 {
     height: 50vh;
+    padding-top: 26vh;
 }
 #divFlake3 {
     height: 54vh;
+    padding-top: 40vh;
 }
 #divFlake4 {
     height: 57vh;
+    padding-top: 22vh;
 }
 #divFlake5 {
     height: 60vh;
+    padding-top: 10vh;
 }
 #divFlake6 {
     height: 64vh;
+    padding-top: 43vh;
 }
 #divFlake7 {
     height: 66vh;
+    padding-top: 32vh;
 }
-
+#divFlake8 {
+    height: 68vh;
+    padding-top: 3vh;
+}
+#divFlake9 {
+    height: 68vh;
+    padding-top: 40vh;
+}
+#divFlake10 {
+    height: 68vh;
+    padding-left: 4em;
+    padding-top: -4vh;
+}
 
 
 /*Beginning of first part = button "play" and "records"*/
@@ -237,4 +256,24 @@ table img.validate {
 
 .snow {
     opacity: 1;
+    -webkit-animation: flash 1.5s;
+	animation: flash 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
 }

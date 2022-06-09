@@ -50,43 +50,33 @@ div {
 
 
 #divFlake1 {
-    height: 45vh;
     padding-top: 12vh;
 }
 #divFlake2 {
-    height: 50vh;
     padding-top: 26vh;
 }
 #divFlake3 {
-    height: 54vh;
-    padding-top: 40vh;
+    padding-top: 37vh;
 }
 #divFlake4 {
-    height: 57vh;
     padding-top: 22vh;
 }
 #divFlake5 {
-    height: 60vh;
     padding-top: 10vh;
 }
 #divFlake6 {
-    height: 64vh;
     padding-top: 43vh;
 }
 #divFlake7 {
-    height: 66vh;
     padding-top: 32vh;
 }
 #divFlake8 {
-    height: 68vh;
     padding-top: 3vh;
 }
 #divFlake9 {
-    height: 68vh;
     padding-top: 40vh;
 }
 #divFlake10 {
-    height: 68vh;
     padding-left: 4em;
     padding-top: -4vh;
 }
@@ -123,6 +113,11 @@ div {
 }
 
 
+#restart {
+    margin-right: 3em;
+}
+
+
 
 
 /*Beginning of second Part = block of pictures*/
@@ -130,7 +125,6 @@ div {
 
 #pageBottom {
     justify-content: space-around;
-    height: 100%;
 }
 
 #pageBottom p {
@@ -276,4 +270,32 @@ table img.validate {
 	100% {
 		opacity: 1;
 	}
+}
+
+
+
+#finished {
+    font-size: 4em;
+    font-style: italic;
+    font-weight: bold;
+    padding-left: 2em;
+    display: flex;
+    justify-content: left;
+    text-decoration: double;
+    opacity: 0;
+}
+
+
+#finished.endOfGame {
+    opacity: 1;
+    animation-duration: .5s;
+    animation-name: endOfGameCss;
+    animation-iteration-count: infinite;
+    transition: none;
+}
+
+
+@keyframes endOfGameCss { 
+    from { color: #FFFFFF}
+    to   { color: #FCC803}
 }

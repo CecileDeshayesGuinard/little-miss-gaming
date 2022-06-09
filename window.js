@@ -50,8 +50,8 @@ let picture2; // anciennement picture1 qui devient picture2 dès la seconde imag
 const result = document.querySelector('#effect-found-lost'); // effet spécial si paire trouvée
 const visibleOlaf = document.querySelector('#visibleOlaf');
 const snowDown = document.querySelectorAll('#snowFlakes img');
-console.log(`controle d'erreur`,snowDown);
 const moon = document.querySelector('#visibleMoon');
+const finished = document.querySelector('#finished')
 
 
 
@@ -148,7 +148,7 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
 
         // si level 1 => j'affiche olaf
         if (level === 1) {
-          console.log('affichage d olaf')
+          console.log('affichage Olaf')
           visibleOlaf.classList.add('active')
         }
         
@@ -164,6 +164,7 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
             img.classList.replace('noSnow','snow');
           }) // toujours un function pour un forEach
           //.replace('noSnow','snow')
+          finished.classList.add('endOfGame')
         }
 
         
@@ -199,3 +200,8 @@ reshuffle.onclick = function () {
   
     start()
 };
+
+
+function refreshPage(){
+  window.location.reload();
+} 

@@ -51,7 +51,7 @@ const result = document.querySelector('#effect-found-lost'); // effet spécial s
 const visibleOlaf = document.querySelector('#visibleOlaf');
 const snowDown = document.querySelectorAll('#snowFlakes img');
 const moon = document.querySelector('#visibleMoon');
-const finished = document.querySelector('#finished')
+const gameOver = document.querySelector('#finished')
 
 
 
@@ -130,7 +130,7 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
       console.log('first clicked image');
     };
 
-    /*Pourquoi remplacer 'turned' par 'validate"
+     /*Pourquoi remplacer 'turned' par 'validate"
       'turned' permet de retourner les images cliquées. il est donc important de l'enveler en cas d'échec.
       Egalement, 'turned' ne peut être gardé sur les paires trouvées car le moindre échec enlèverait nos gains précédents en supprimant la classe.
       Pour palier à ce problème, nous remplaçons la class 'turned' par 'validate' qui n'est jamais éffacée
@@ -138,7 +138,7 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
       Initialement, je voulais trouvé une solution en .js mais ceci, en plus d'être compliqué, rendait le code erratique.
       Solution trouvée via le .css : { pointer-events: none; }
       Ce code .css attribué aux classes 'turned' et 'validate' empeche le click sur les images les possédant, donc déjà cliquées
-    */
+      */
 
 
       if (pairsCount === arraySelected.length / 2) { // on controle si le jeu est terminé
@@ -164,14 +164,13 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
             img.classList.replace('noSnow','snow');
           }) // toujours un function pour un forEach
           //.replace('noSnow','snow')
-          finished.classList.add('endOfGame')
+          gameOver.classList.add('endOfGame')
         }
-
         
 
         // re- start()
 
-        if (level < 4) {
+        if (level <= gallery.length -1) {
           start();
         } else {
           undefined;
@@ -182,23 +181,17 @@ allImages.forEach(backPicture => { // on créer un évenement valable pour chaqu
         start();
         if (arraySelected = gallery[1]) {  // en gros, le jeu est fini s'il n'ya plus d'élément dans l'array gallery
           visibleOlaf.classList.add('active');
-        } else if
-        (arraySelected = gallery[2]) {
-          moon.classList.add('up');
+        } else if*
+        
         };*/
-
-      } else {
-
-       /*   console.log('game finished');
-          snowDown.classList.replace('noSnow', 'snow'); */
-        }
       };
+  };
 });
 
 reshuffle.onclick = function () {
-    console.log(arraySelected) // au click on mélange les images et on reset le jeu
+  console.log(arraySelected) // au click on mélange les images et on reset le jeu
   
-    start()
+  start()
 };
 
 

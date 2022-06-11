@@ -170,7 +170,7 @@ table td {
 table img {
     max-height: 110px;
     max-width: 80px;
-    opacity: 0;
+    opacity: 0.4;
     cursor: pointer;
 }
 

@@ -51,7 +51,7 @@ const result = document.querySelector('#effect-found-lost'); // effet spécial s
 const visibleOlaf = document.querySelector('#visibleOlaf');
 const snowDown = document.querySelectorAll('#snowFlakes img');
 const moon = document.querySelector('#visibleMoon');
-const gameOver = document.querySelector('#finished')
+const gameOver = document.querySelector('#finished');
 
 
 
